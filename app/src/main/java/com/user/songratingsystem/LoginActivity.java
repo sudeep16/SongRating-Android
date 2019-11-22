@@ -42,9 +42,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (usernamne.equals("admin") && password.equals("admin")) {
                     Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-//                    intent.putExtra(EXTRA_MESSAGE, usernamne);
-//                    startActivity(intent);
+                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                    intent.putExtra(EXTRA_MESSAGE, usernamne);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
                     return;
