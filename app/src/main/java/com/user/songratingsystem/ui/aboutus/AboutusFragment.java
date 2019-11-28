@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -24,7 +27,20 @@ public class AboutusFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_aboutus, container, false);
+        View view =  inflater.inflate(R.layout.fragment_aboutus, container, false);
+
+        WebView myWebView = view.findViewById(R.id.webview);
+        myWebView.loadUrl("https://softwarica.edu.np");
+
+        //enable javascript setting
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setAppCacheEnabled(true);
+
+        myWebView.setWebViewClient(new WebViewClient());
+
+
+        return view;
     }
 
 }

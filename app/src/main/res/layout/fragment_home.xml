@@ -6,39 +6,53 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp">
 
-    <TextView
-        android:id="@+id/recentlyFeatured"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:paddingLeft="20dp"
-        android:text="Recently Featured"
-        android:textSize="30dp"
+        android:layout_margin="20dp"
+        android:background="#ff00ff"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/featuredRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recentlyFeatured" />
+        <TextView
+            android:id="@+id/recentlyFeatured"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:paddingLeft="20dp"
+            android:text="Recently Featured"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/genre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:paddingLeft="20dp"
-        android:text="Genre"
-        android:textSize="30dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featuredRecycler" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="40dp"
+            android:id="@+id/featuredRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recentlyFeatured" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#000000"
+            android:paddingLeft="20dp"
+            android:text="Genre"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dataRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,4 +78,5 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/artist" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
