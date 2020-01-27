@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:orientation="vertical"
     android:padding="25dp"
 
@@ -175,5 +176,8 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
     </LinearLayout>
 
+=======
+    tools:context=".RegistrationActivity">
+>>>>>>> origin/master
 
 </androidx.constraintlayout.widget.ConstraintLayout>
