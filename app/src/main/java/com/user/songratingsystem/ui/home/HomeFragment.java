@@ -4,22 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.user.songratingsystem.R;
-import com.user.songratingsystem.adapter.ViewAdapter;
-import com.user.songratingsystem.model.ViewData;
-
-import org.w3c.dom.Text;
+import com.user.songratingsystem.model.RegisteredUsers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +33,12 @@ public class HomeFragment extends Fragment {
         recyclerView1 = view.findViewById(R.id.artistRecycler);
         recyclerView2 = view.findViewById(R.id.featuredRecycler);
 
-       List<ViewData> viewData = new ArrayList<>();
+       List<RegisteredUsers> viewData = new ArrayList<>();
 
-       viewData.add(new ViewData("Rock", R.drawable.artist));
-       viewData.add(new ViewData("Metal", R.drawable.logo));
-       viewData.add(new ViewData("Heavy Metal", R.drawable.artist));
-       viewData.add(new ViewData("Rap", R.drawable.logo));
+       viewData.add(new RegisteredUsers("Rock", R.drawable.artist));
+       viewData.add(new RegisteredUsers("Metal", R.drawable.logo));
+       viewData.add(new RegisteredUsers("Heavy Metal", R.drawable.artist));
+       viewData.add(new RegisteredUsers("Rap", R.drawable.logo));
 
        ViewAdapter viewAdapter = new ViewAdapter(getActivity(), viewData);
         recyclerView.setAdapter(viewAdapter);
