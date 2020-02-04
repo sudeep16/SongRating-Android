@@ -35,20 +35,20 @@ public class HomeFragment extends Fragment {
 
        List<RegisteredUsers> viewData = new ArrayList<>();
 
-       viewData.add(new RegisteredUsers("Rock", R.drawable.artist));
-       viewData.add(new RegisteredUsers("Metal", R.drawable.logo));
-       viewData.add(new RegisteredUsers("Heavy Metal", R.drawable.artist));
-       viewData.add(new RegisteredUsers("Rap", R.drawable.logo));
+//       viewData.add(new RegisteredUsers("Rock", R.drawable.artist));
+//       viewData.add(new RegisteredUsers("Metal", R.drawable.logo));
+//       viewData.add(new RegisteredUsers("Heavy Metal", R.drawable.artist));
+//       viewData.add(new RegisteredUsers("Rap", R.drawable.logo));
 
-       ViewAdapter viewAdapter = new ViewAdapter(getActivity(), viewData);
-        recyclerView.setAdapter(viewAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
-
-        recyclerView1.setAdapter(viewAdapter);
-        recyclerView1.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
-
-        recyclerView2.setAdapter(viewAdapter);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+//       ViewAdapter viewAdapter = new ViewAdapter(getActivity(), viewData);
+//        recyclerView.setAdapter(viewAdapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+//
+//        recyclerView1.setAdapter(viewAdapter);
+//        recyclerView1.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+//
+//        recyclerView2.setAdapter(viewAdapter);
+//        recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
 
         return view;
 
