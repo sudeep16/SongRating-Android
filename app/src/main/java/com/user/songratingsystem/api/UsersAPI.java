@@ -18,7 +18,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Part;
 
 public interface UsersAPI {
-    @POST("users/signup")
+    @POST("users/registration")
     retrofit2.Call<RegisterResponse> registerUser(@Body RegisteredUsers users);
 
     @FormUrlEncoded
