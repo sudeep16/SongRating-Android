@@ -4,80 +4,71 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisteredUsers {
-    String uName, pass, cPass, email, phone, address, gender, imageId;
+    String Username, Password, Email, Phone, Address, Gender, Image;
 
-    public RegisteredUsers(String uName, String pass, String cPass, String email, String phone, String address, String gender, String imageId) {
-        this.uName = uName;
-        this.pass = pass;
-        this.cPass = cPass;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.gender = gender;
-        this.imageId = imageId;
+    public RegisteredUsers(String username, String password, String email, String phone, String address, String gender, String image) {
+        Username = username;
+        Password = password;
+        Email = email;
+        Phone = phone;
+        Address = address;
+        Gender = gender;
+        Image = image;
     }
 
-    public String getuName() {
-        return uName;
+    public String getUsername() {
+        return Username;
     }
 
-    public void setuName(String uName) {
-        this.uName = uName;
+    public void setUsername(String username) {
+        Username = username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    public String getcPass() {
-        return cPass;
-    }
-
-    public void setcPass(String cPass) {
-        this.cPass = cPass;
+    public void setPassword(String password) {
+        Password = password;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
     public String getPhone() {
-        return phone;
+        return Phone;
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        Phone = phone;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
     public String getGender() {
-        return gender;
+        return Gender;
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        Gender = gender;
     }
 
-    public String getImageId() {
-        return imageId;
+    public String getImage() {
+        return Image;
     }
 
-    public void setImageId(String imageId) {
-        this.imageId = imageId;
+    public void setImage(String image) {
+        Image = image;
     }
 }
