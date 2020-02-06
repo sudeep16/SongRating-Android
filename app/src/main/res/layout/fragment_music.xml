@@ -33,7 +33,7 @@
             app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
         <Button
-            android:id="@+id/pause"
+            android:id="@+id/play"
             android:layout_width="84dp"
             android:layout_height="86dp"
             android:layout_marginStart="12dp"
@@ -42,7 +42,7 @@
             android:background="@drawable/btnr"
             android:text="||"
             android:textColor="#ffffff"
-            android:textSize="30dp"
+            android:textSize="40dp"
             app:layout_constraintStart_toEndOf="@+id/seekBack"
             app:layout_constraintTop_toBottomOf="@+id/musicLogo" />
 
@@ -70,11 +70,11 @@
             android:text=">>"
             android:textColor="#ffffff"
             android:textSize="30dp"
-            app:layout_constraintStart_toEndOf="@+id/pause"
+            app:layout_constraintStart_toEndOf="@+id/play"
             app:layout_constraintTop_toBottomOf="@+id/musicLogo" />
 
         <Button
-            android:id="@+id/Previous"
+            android:id="@+id/previous"
             android:layout_width="62dp"
             android:layout_height="41dp"
             android:layout_marginStart="8dp"
@@ -98,7 +98,7 @@
             android:text="<<"
             android:textColor="#ffffff"
             android:textSize="30dp"
-            app:layout_constraintStart_toEndOf="@+id/Previous"
+            app:layout_constraintStart_toEndOf="@+id/previous"
             app:layout_constraintTop_toBottomOf="@+id/musicLogo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
