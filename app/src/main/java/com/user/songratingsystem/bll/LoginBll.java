@@ -20,7 +20,7 @@ public class LoginBll {
         try {
             Response<RegisterResponse> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful() &&
-                    loginResponse.body().getStatus().equals("Login success!")) {
+                    loginResponse.body().getStatus().equals("Login Successful")) {
 
                 URL.token += loginResponse.body().getToken();
                 // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");
