@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment {
         }
 
         ArrayAdapter<String> adapterSong = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.songlist, R.id.songName,items);
+        listView.setAdapter(adapterSong);
 
 
 
