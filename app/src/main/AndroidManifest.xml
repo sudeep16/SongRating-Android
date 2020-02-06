@@ -21,16 +21,15 @@
         <activity android:name=".activities.Register.ImageActivity"></activity>
         <activity android:name=".activities.Register.RegistrationActivity" />
         <activity android:name=".activities.SplashActivity">
+        </activity>
+        <activity
+            android:name=".activities.DashboardActivity"
+            android:label="@string/title_activity_dashboard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".activities.DashboardActivity"
-            android:label="@string/title_activity_dashboard" >
-
         </activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.MainActivity" />
