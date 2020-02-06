@@ -2,7 +2,6 @@ package com.user.songratingsystem.api;
 
 import com.user.songratingsystem.model.RegisteredUsers;
 import com.user.songratingsystem.responses.ImageResponse;
-import com.user.songratingsystem.responses.LoginResponse;
 import com.user.songratingsystem.responses.RegisterResponse;
 
 import okhttp3.MultipartBody;
@@ -19,15 +18,15 @@ import retrofit2.http.Part;
 
 public interface UsersAPI {
     @POST("users/registration")
-    retrofit2.Call<RegisterResponse> registerUser(@Body RegisteredUsers users);
+    Call<RegisterResponse> registerUser(@Body RegisteredUsers users);
 
     @FormUrlEncoded
     @POST("users/login")
-    retrofit2.Call<RegisterResponse> checkUser(@Field("username") String username, @Field("password") String password);
+    Call<RegisterResponse> checkUser(@Field("Username") String username, @Field("Password") String password);
 
     @Multipart
     @POST("upload")
-    retrofit2.Call<ImageResponse> uploadImage(@Part MultipartBody.Part img);
+    Call<ImageResponse> uploadImage(@Part MultipartBody.Part img);
 
     @GET("users/me")
     Call<RegisteredUsers> getUserDetails(@Header("Authorization")String token);
