@@ -1,11 +1,13 @@
 package com.user.songratingsystem.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -16,10 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.user.songratingsystem.R;
 import com.user.songratingsystem.model.RegisteredUsers;
+import com.user.songratingsystem.ui.musicPlayer.MusicFragment;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.widget.AdapterView.*;
 
 public class HomeFragment extends Fragment {
 
@@ -38,17 +43,23 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         listView = (ListView) view.findViewById(R.id.lvSongs);
 
-        ArrayList<File> mySongs = findSongs(Environment.getExternalStorageDirectory());
+        final ArrayList<File> mySongs = findSongs(Environment.getExternalStorageDirectory());
         items = new String[mySongs.size() ];
         for(int i = 0; i<mySongs.size(); i++){
             toast(mySongs.get(i).getName().toString());
-            items[i] = mySongs.get(i).getName().toString();
+            items[i] = mySongs.get(i).getName().toString().replace(".mp3","");
         }
 
         ArrayAdapter<String> adapterSong = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.songlist, R.id.songName,items);
         listView.setAdapter(adapterSong);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getActivity().getApplicationContext(), MusicFragment.class).putExtra("pos", position).putExtra("songlist", mySongs));
 
+            }
+        });
 
         return view;
 
