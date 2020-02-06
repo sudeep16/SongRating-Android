@@ -1,10 +1,7 @@
 package com.user.songratingsystem.bll;
 
-import android.util.Log;
-
 import com.user.songratingsystem.api.UsersAPI;
-import com.user.songratingsystem.model.RegisteredUsers;
-import com.user.songratingsystem.responses.LoginResponse;
+import com.user.songratingsystem.responses.RegisterResponse;
 import com.user.songratingsystem.url.URL;
 
 import java.io.IOException;
@@ -13,17 +10,20 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 public class LoginBll {
-
     boolean isSuccess = false;
 
-    public boolean checkUser(String Username, String Password) {
+    public boolean checkUser(String username, String password) {
+
         UsersAPI usersAPI = URL.getInstance().create(UsersAPI.class);
-        Call<LoginResponse> usersCall = usersAPI.checkUser(Username, Password);
+        Call<RegisterResponse> usersCall = usersAPI.checkUser(username, password);
+
         try {
-            Response<LoginResponse> loginResponse = usersCall.execute();
+            Response<RegisterResponse> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful() &&
-                    loginResponse.body().getStatus().equals("Login successful")) {
-                URL.token += loginResponse.body().getUsertoken();
+                    loginResponse.body().getStatus().equals("Login success!")) {
+
+                URL.token += loginResponse.body().getToken();
+                // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");
                 isSuccess = true;
             }
         } catch (IOException e) {
@@ -32,4 +32,3 @@ public class LoginBll {
         return isSuccess;
     }
 }
-
