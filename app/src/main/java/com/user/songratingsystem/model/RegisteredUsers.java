@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisteredUsers {
-    String Username, Password, Email, Phone, Address, Gender, Image;
+    String Username, Password, Email, Address, Gender, Phone, Image;
 
-    public RegisteredUsers(String username, String password, String email, String phone, String address, String gender, String image) {
+    public RegisteredUsers(String username, String password, String email, String address, String gender, String phone, String image) {
         Username = username;
         Password = password;
         Email = email;
-        Phone = phone;
         Address = address;
         Gender = gender;
+        Phone = phone;
         Image = image;
     }
 
@@ -40,14 +40,6 @@ public class RegisteredUsers {
         Email = email;
     }
 
-    public String getPhone() {
-        return Phone;
-    }
-
-    public void setPhone(String phone) {
-        Phone = phone;
-    }
-
     public String getAddress() {
         return Address;
     }
@@ -62,6 +54,14 @@ public class RegisteredUsers {
 
     public void setGender(String gender) {
         Gender = gender;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
     public String getImage() {

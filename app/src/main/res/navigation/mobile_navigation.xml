@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_genre" />
 
     <fragment
+        android:id="@+id/navigation_music"
+        android:name="com.user.songratingsystem.ui.musicPlayer.MusicFragment"
+        android:label="Music Player"
+        tools:layout="@layout/fragment_music" />
+
+    <fragment
         android:id="@+id/navigation_genre"
         android:name="com.user.songratingsystem.ui.genre.GenreFragment"
         android:label="Genre"

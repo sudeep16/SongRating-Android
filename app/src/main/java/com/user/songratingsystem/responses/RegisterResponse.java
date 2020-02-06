@@ -1,20 +1,12 @@
 package com.user.songratingsystem.responses;
 
 public class RegisterResponse {
-    String code,status,messsage;
+    String status;
+    String usertoken;
 
-    public RegisterResponse(String code, String status, String messsage) {
-        this.code = code;
+    public RegisterResponse(String status, String usertoken) {
         this.status = status;
-        this.messsage = messsage;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+        this.usertoken = usertoken;
     }
 
     public String getStatus() {
@@ -25,11 +17,11 @@ public class RegisterResponse {
         this.status = status;
     }
 
-    public String getMesssage() {
-        return messsage;
+    public String getUsertoken() {
+        return usertoken;
     }
 
-    public void setMesssage(String messsage) {
-        this.messsage = messsage;
+    public void setUsertoken(String usertoken) {
+        this.usertoken = usertoken;
     }
 }

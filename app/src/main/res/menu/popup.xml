@@ -5,5 +5,5 @@
         android:title="Open Camera" />
     <item
         android:id="@+id/gallary"
-        android:title="Open Gallary" />
+        android:title="Open Gallery" />
 </menu>
