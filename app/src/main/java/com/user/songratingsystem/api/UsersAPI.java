@@ -21,7 +21,7 @@ public interface UsersAPI {
 
     @FormUrlEncoded
     @POST("users/login")
-    Call<RegisterResponse> checkUser(@Field("Username") String Username, @Field("Password") String Password);
+    Call<RegisterResponse> checkUser(@Field("Username") String username, @Field("Password") String password);
 
     @Multipart
     @POST("upload")
