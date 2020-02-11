@@ -3,7 +3,6 @@ package com.user.songratingsystem.ui.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +10,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.user.songratingsystem.R;
-import com.user.songratingsystem.model.RegisteredUsers;
-import com.user.songratingsystem.ui.musicPlayer.MusicFragment;
+import com.user.songratingsystem.activities.MusicActivity;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.widget.AdapterView.*;
 
 public class HomeFragment extends Fragment {
 
@@ -46,7 +37,7 @@ public class HomeFragment extends Fragment {
         final ArrayList<File> mySongs = findSongs(Environment.getExternalStorageDirectory());
         items = new String[mySongs.size() ];
         for(int i = 0; i<mySongs.size(); i++){
-            toast(mySongs.get(i).getName().toString());
+            //toast(mySongs.get(i).getName().toString());
             items[i] = mySongs.get(i).getName().toString().replace(".mp3","");
         }
 
@@ -56,7 +47,8 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity().getApplicationContext(), MusicFragment.class).putExtra("pos", position).putExtra("songlist", mySongs));
+
+                startActivity(new Intent(getActivity().getApplicationContext(), MusicActivity.class).putExtra("pos", position).putExtra("songlist", mySongs));
 
             }
         });
