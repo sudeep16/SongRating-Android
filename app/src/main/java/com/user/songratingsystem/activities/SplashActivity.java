@@ -13,11 +13,13 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import com.user.songratingsystem.R;
+import com.user.songratingsystem.bll.LoginBll;
+import com.user.songratingsystem.strictmode.StrictModeClass;
 
 
 public class SplashActivity extends AppCompatActivity {
 
-
+    String username, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,17 +35,16 @@ public class SplashActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    private void checkUser(){
+    public void checkUser(){
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
-        String username = sharedPreferences.getString("Username", "");
-        String password = sharedPreferences.getString("Password", "");
+        username = sharedPreferences.getString("Username", null);
+        password = sharedPreferences.getString("Password", null);
 
-        if(username.equals("admin") && password.equals("admin")){
-
+        if(username != null && password != null){
+            login();
             Intent intent = new Intent(SplashActivity.this, DashboardActivity.class);
             startActivity(intent);
             finish();
-            Toast.makeText(this, "Welcome to Dahboard", Toast.LENGTH_SHORT).show();
         }
 
         else {
@@ -51,6 +52,25 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    public void login() {
+
+        String Username = username;
+        String Password = password;
+
+        LoginBll loginBll = new LoginBll();
+
+        StrictModeClass.StrictMode();
+        if (loginBll.checkUser(Username, Password)) {
+            Intent intent = new Intent(SplashActivity.this, DashboardActivity.class);
+            startActivity(intent);
+        }
+
+        else {
+            Toast.makeText(SplashActivity.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private  void checkPermission(){

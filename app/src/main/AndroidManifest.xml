@@ -18,18 +18,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.Register.ImageActivity"></activity>
+        <activity android:name=".activities.ListActivity">        </activity>
+        <activity android:name=".activities.MusicActivity" />
+        <activity android:name=".ui.profile.UpdateActivity" />
+        <activity android:name=".activities.Register.ImageActivity" />
         <activity android:name=".activities.Register.RegistrationActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".activities.SplashActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
             android:name=".activities.DashboardActivity"
-            android:label="@string/title_activity_dashboard" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:label="@string/title_activity_dashboard">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+
         </activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.MainActivity" />

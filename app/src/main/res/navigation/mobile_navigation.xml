@@ -12,22 +12,17 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.user.songratingsystem.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
         android:id="@+id/navigation_artist"
         android:name="com.user.songratingsystem.ui.artist.ArtistFragment"
         android:label="Artist"
-        tools:layout="@layout/fragment_genre" />
+        tools:layout="@layout/fragment_profile" />
 
-    <fragment
-        android:id="@+id/navigation_music"
-        android:name="com.user.songratingsystem.ui.musicPlayer.MusicFragment"
-        android:label="Music Player"
-        tools:layout="@layout/fragment_music" />
-
-    <fragment
-        android:id="@+id/navigation_genre"
-        android:name="com.user.songratingsystem.ui.genre.GenreFragment"
-        android:label="Genre"
-        tools:layout="@layout/fragment_artist" />
 
     <fragment
         android:id="@+id/navigation_aboutus"

@@ -18,16 +18,16 @@ import android.widget.Toast;
 
 import com.user.songratingsystem.R;
 import com.user.songratingsystem.activities.LoginActivity;
-import com.user.songratingsystem.activities.SplashActivity;
 import com.user.songratingsystem.api.UsersAPI;
 import com.user.songratingsystem.model.RegisteredUsers;
 import com.user.songratingsystem.responses.ImageResponse;
 import com.user.songratingsystem.responses.RegisterResponse;
 import com.user.songratingsystem.strictmode.StrictModeClass;
-import com.user.songratingsystem.url.URL;
+import com.user.songratingsystem.url.Url;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -135,7 +135,7 @@ public class ImageActivity extends AppCompatActivity {
         MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile",
                 file.getName(), requestBody);
 
-        UsersAPI usersAPI = URL.getInstance().create(UsersAPI.class);
+        UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
         Call<ImageResponse> responseBodyCall = usersAPI.uploadImage(body);
 
         StrictModeClass.StrictMode();
@@ -155,7 +155,7 @@ public class ImageActivity extends AppCompatActivity {
 
         RegisteredUsers users = new RegisteredUsers(Username, Password, Email, Phone, Address, Gender, imageName);
 
-        UsersAPI usersAPI = URL.getInstance().create(UsersAPI.class);
+        UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
         Call<RegisterResponse> registerCall = usersAPI.registerUser(users);
 
         registerCall.enqueue(new Callback<RegisterResponse>() {

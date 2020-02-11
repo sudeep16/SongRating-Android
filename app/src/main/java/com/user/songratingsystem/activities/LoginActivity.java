@@ -110,8 +110,6 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("Username", Username);
         editor.putString("Password", Password);
         editor.commit();
-
-        Toast.makeText(this, "Successfully Registered", Toast.LENGTH_SHORT).show();
     }
 
 
