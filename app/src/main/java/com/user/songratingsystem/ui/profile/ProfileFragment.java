@@ -37,11 +37,11 @@ import retrofit2.Response;
  */
 public class ProfileFragment extends Fragment {
 
-    ImageView imgProfile;
+    CircleImageView imgProfile;
     TextView dispUsername, dispEmail, dispPhone, dispAddress, dispGender;
     Button editBtn, logoutBtn;
     String imgPath = " ";
-    UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
+    public static UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
 
 
     public ProfileFragment() {
@@ -79,7 +79,7 @@ public class ProfileFragment extends Fragment {
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), UpdateActivity.class);
                 startActivity(intent);
             }
         });
@@ -89,6 +89,7 @@ public class ProfileFragment extends Fragment {
 
     public void userRetrieve() {
         Call<RegisteredUsers> usersCall = usersAPI.getUserDetails(Url.token);
+//        Toast.makeText(getActivity(), Url.token, Toast.LENGTH_SHORT).show();
         usersCall.enqueue(new Callback<RegisteredUsers>() {
             @Override
             public void onResponse(Call<RegisteredUsers> call, Response<RegisteredUsers> response) {
@@ -121,20 +122,3 @@ public class ProfileFragment extends Fragment {
         });
     }
 }
-
-//try {
-//        Response<RegisteredUsers> usersResponse = usersCall.execute();
-//        if (usersResponse.isSuccessful() &&
-//        !usersResponse.body().getPhone().isEmpty()) {
-//        Picasso.get().load(Url.base_url + usersResponse.body().getImage()).resize(400, 110).centerCrop().into(imgProfile);
-//        dispUsername.setText(usersResponse.body().getUsername());
-//        dispEmail.setText(usersResponse.body().getEmail());
-//        dispPhone.setText(usersResponse.body().getPhone());
-//        dispAddress.setText(usersResponse.body().getAddress());
-//        dispGender.setText(usersResponse.body().getGender());
-//        }
-//        } catch (IOException e) {
-//        e.printStackTrace();
-//        }
-//        }
-
