@@ -1,6 +1,7 @@
 package com.user.songratingsystem.api;
 
 import com.user.songratingsystem.model.RegisteredUsers;
+import com.user.songratingsystem.model.UpdateUsers;
 import com.user.songratingsystem.responses.ImageResponse;
 import com.user.songratingsystem.responses.RegisterResponse;
 
@@ -30,5 +31,8 @@ public interface UsersAPI {
 
     @GET("users/profile")
     Call<RegisteredUsers> getUserDetails(@Header("Authorization")String token);
+
+    @PUT("users/updProfile")
+    Call<String> updProfile(@Header("Authorization")String token, @Body UpdateUsers updateUsers);
 
 }
