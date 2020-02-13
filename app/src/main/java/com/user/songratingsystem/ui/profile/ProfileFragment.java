@@ -2,6 +2,7 @@ package com.user.songratingsystem.ui.profile;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
@@ -32,6 +33,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -41,7 +44,6 @@ public class ProfileFragment extends Fragment {
     TextView dispUsername, dispEmail, dispPhone, dispAddress, dispGender;
     Button editBtn, logoutBtn;
     String imgPath = " ";
-    public static UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
 
 
     public ProfileFragment() {
@@ -69,7 +71,11 @@ public class ProfileFragment extends Fragment {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Url.token = null;
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 Toast.makeText(getActivity(), Url.token + "You have been Logged Out", Toast.LENGTH_SHORT).show();
@@ -88,8 +94,8 @@ public class ProfileFragment extends Fragment {
     }
 
     public void userRetrieve() {
+        UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
         Call<RegisteredUsers> usersCall = usersAPI.getUserDetails(Url.token);
-//        Toast.makeText(getActivity(), Url.token, Toast.LENGTH_SHORT).show();
         usersCall.enqueue(new Callback<RegisteredUsers>() {
             @Override
             public void onResponse(Call<RegisteredUsers> call, Response<RegisteredUsers> response) {
@@ -100,7 +106,6 @@ public class ProfileFragment extends Fragment {
 
                 StrictModeClass.StrictMode();
                 try {
-
                     dispUsername.setText(response.body().getUsername());
                     dispEmail.setText(response.body().getEmail());
                     dispPhone.setText(response.body().getPhone());

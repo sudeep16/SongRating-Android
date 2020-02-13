@@ -1,9 +1,12 @@
 package com.user.songratingsystem.api;
 
 import com.user.songratingsystem.model.RegisteredUsers;
+import com.user.songratingsystem.model.Songs;
 import com.user.songratingsystem.model.UpdateUsers;
 import com.user.songratingsystem.responses.ImageResponse;
 import com.user.songratingsystem.responses.RegisterResponse;
+
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -35,4 +38,15 @@ public interface UsersAPI {
     @PUT("users/updProfile")
     Call<String> updProfile(@Header("Authorization")String token, @Body UpdateUsers updateUsers);
 
+    @GET("song")
+    Call<List<Songs>> getSongs(@Header("Authorization") String token);
+
+    @GET("song/Romance")
+    Call<List<Songs>> getRomanceGenre(@Header("Authorization") String token);
+
+    @GET("song/HardRock")
+    Call<List<Songs>> getHardRockGenre(@Header("Authorization") String token);
+
+    @GET("song/ClassicRock")
+    Call<List<Songs>> getClassicRockGenre(@Header("Authorization") String token);
 }
