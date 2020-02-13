@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.Dash;
 import com.squareup.picasso.Picasso;
 import com.user.songratingsystem.R;
+import com.user.songratingsystem.activities.DashboardActivity;
 import com.user.songratingsystem.api.UsersAPI;
 import com.user.songratingsystem.model.RegisteredUsers;
 import com.user.songratingsystem.model.UpdateUsers;
@@ -55,7 +57,7 @@ public class UpdateActivity extends AppCompatActivity {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UpdateActivity.this, ProfileFragment.class);
+                Intent intent = new Intent(UpdateActivity.this, DashboardActivity.class);
                 startActivity(intent);
             }
         });

@@ -8,18 +8,18 @@
 
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Profile" />
 
     <item
-        android:id="@+id/navigation_artist"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Artist" />
+        android:id="@+id/navigation_rated_playlilst"
+        android:icon="@drawable/ic_playlist_add_black_24dp"
+        android:title="Rated Playlist" />
 
 
     <item
         android:id="@+id/navigation_aboutus"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_child_care_black_24dp"
         android:title="About Us" />
 
 </menu>
