@@ -2,14 +2,19 @@ package com.user.songratingsystem.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.user.songratingsystem.R;
 import com.user.songratingsystem.model.Songs;
 import com.user.songratingsystem.strictmode.StrictModeClass;
+import com.user.songratingsystem.ui.profile.ProfileFragment;
+import com.user.songratingsystem.ui.profile.UpdateActivity;
 import com.user.songratingsystem.url.Url;
 
 import java.io.InputStream;
@@ -18,6 +23,7 @@ import java.net.URL;
 public class SongDetailActivity extends AppCompatActivity {
     ImageView song_image;
     TextView song_title, song_artist, song_genre, song_duration;
+    Button sAddBtn, sCancelBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,16 @@ public class SongDetailActivity extends AppCompatActivity {
         song_artist = findViewById(R.id.song_artist);
         song_genre = findViewById(R.id.song_genre);
         song_duration = findViewById(R.id.song_duration);
+        sAddBtn = findViewById(R.id.sAddBtn);
+        sCancelBtn = findViewById(R.id.sCancelBtn);
+
+        sCancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SongDetailActivity.this, DashboardActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {

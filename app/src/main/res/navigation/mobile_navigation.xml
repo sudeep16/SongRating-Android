@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/navigation_artist"
-        android:name="com.user.songratingsystem.ui.artist.ArtistFragment"
+        android:id="@+id/navigation_rated_playlilst"
+        android:name="com.user.songratingsystem.ui.rated.RatedPlaylistFragment"
         android:label="Artist"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_rated_playlist" />
 
 
     <fragment

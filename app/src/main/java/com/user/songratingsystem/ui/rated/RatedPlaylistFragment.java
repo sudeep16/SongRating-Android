@@ -1,22 +1,17 @@
-package com.user.songratingsystem.ui.artist;
+package com.user.songratingsystem.ui.rated;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.user.songratingsystem.R;
 
-public class ArtistFragment extends Fragment {
+public class RatedPlaylistFragment extends Fragment {
 
-    public ArtistFragment() {
+    public RatedPlaylistFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +20,7 @@ public class ArtistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_artist, container, false);
+        return inflater.inflate(R.layout.fragment_rated_playlist, container, false);
     }
 
 }
