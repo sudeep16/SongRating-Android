@@ -46,6 +46,13 @@ public class SongDetailActivity extends AppCompatActivity {
             }
         });
 
+        sAddBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             String photo = bundle.getString("songImage");
