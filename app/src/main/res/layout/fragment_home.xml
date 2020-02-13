@@ -1,18 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp">
 
-    <ListView
-        android:id="@+id/lvSongs"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/aSongText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recommended Songs"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"
+                android:background="#009922"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_marginVertical="5dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/allSongs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aSongText"
+                android:layout_marginVertical="10dp"/>
+
+            <TextView
+                android:id="@+id/rSongText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Romance Songs"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"
+                android:background="#009922"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_below="@+id/allSongs"
+                android:layout_marginBottom="10dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Romance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rSongText"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/hSongText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hard Rock Songs"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"
+                android:background="#009922"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_below="@+id/Romance"
+                android:layout_marginBottom="10dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hSong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hSongText"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/cSongText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Classic Rock Songs"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"
+                android:background="#009922"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_below="@+id/hSong"
+                android:layout_marginBottom="10dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cSong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cSongText" />
+        </RelativeLayout>
+    </ScrollView>
+
