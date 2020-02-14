@@ -1,14 +1,14 @@
 package com.user.songratingsystem.model;
 
-public class Songs {
-    String SongTitle, Artist, Genre, Duration, Image, Rating;
+public class UserSongs {
 
-    public Songs(String songTitle, String artist, String genre, String duration, String image, String rating) {
+        String SongTitle, Artist, Genre, Duration, Rating;
+
+    public UserSongs(String songTitle, String artist, String genre, String duration, String rating) {
         SongTitle = songTitle;
         Artist = artist;
         Genre = genre;
         Duration = duration;
-        Image = image;
         Rating = rating;
     }
 
@@ -42,14 +42,6 @@ public class Songs {
 
     public void setDuration(String duration) {
         Duration = duration;
-    }
-
-    public String getImage() {
-        return Image;
-    }
-
-    public void setImage(String image) {
-        Image = image;
     }
 
     public String getRating() {

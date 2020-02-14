@@ -3,6 +3,7 @@ package com.user.songratingsystem.api;
 import com.user.songratingsystem.model.RegisteredUsers;
 import com.user.songratingsystem.model.Songs;
 import com.user.songratingsystem.model.UpdateUsers;
+import com.user.songratingsystem.model.UserSongs;
 import com.user.songratingsystem.responses.ImageResponse;
 import com.user.songratingsystem.responses.RegisterResponse;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -49,4 +51,16 @@ public interface UsersAPI {
 
     @GET("song/ClassicRock")
     Call<List<Songs>> getClassicRockGenre(@Header("Authorization") String token);
+
+    @POST("uSong")
+    Call<Void> userSongs(@Header("Authorization") String token, @Body UserSongs uSongList);
+
+    @GET("uSong")
+    Call<List<UserSongs>> userSongList(@Header("Authorization") String token);
+
+    @DELETE("uSong")
+    Call<List<UserSongs>> userSongDelete(@Header("Authorization") String token);
+
+
+
 }
