@@ -36,10 +36,12 @@ public class SongDetailActivity extends AppCompatActivity {
     private NotificationManagerCompat notificationManagerCompat;
     ImageView song_image;
     TextView song_title, song_artist, song_genre, song_duration;
+    String songTitle, rated;
     Button sAddBtn, sCancelBtn;
     RatingBar ratingBar;
     TextView rate;
     float ratedStar;
+    int Counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,7 @@ public class SongDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addToPlaylist();
+                rateNotify();
 
             }
         });
@@ -112,11 +115,11 @@ public class SongDetailActivity extends AppCompatActivity {
     }
 
     public void addToPlaylist(){
-        String songTitle = song_title.getText().toString().trim();
+        songTitle = song_title.getText().toString().trim();
         String songArtist = song_artist.getText().toString().trim();
         String songGenre = song_genre.getText().toString().trim();
         String songDuration = song_duration.getText().toString().trim();
-        String rated = Float.toString(ratedStar);
+        rated = Float.toString(ratedStar);
 
         UserSongs uSongs = new UserSongs(songTitle, songArtist, songGenre, songDuration, rated);
         UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
@@ -138,8 +141,14 @@ public class SongDetailActivity extends AppCompatActivity {
     }
 
     public void rateNotify(){
-//        Notification notification = new NotificationCompat.Builder(this, CreateChannel.Notify_1)
-//                .setSmallIcon()
+        Notification notification = new NotificationCompat.Builder(this, CreateChannel.Notify_1)
+                .setSmallIcon(R.drawable.ic_star_border_black_24dp)
+                .setContentTitle(songTitle)
+                .setContentText("You have rated the song " + songTitle + " with " + rated)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        notificationManagerCompat.notify(1,notification);
 
+        Counter++;
     }
 }
