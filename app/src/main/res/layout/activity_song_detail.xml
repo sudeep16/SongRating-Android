@@ -22,11 +22,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_person_black" />
 
+
+
         <TextView
             android:id="@+id/song_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="Song Title"
@@ -43,7 +45,7 @@
             android:id="@+id/artist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:text="Artist :"
             android:layout_weight="1"
             android:gravity="right"
@@ -55,7 +57,7 @@
             android:id="@+id/song_artist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:text="Artist"
             android:textColor="#000000"
@@ -73,7 +75,7 @@
             android:id="@+id/genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:text="Genre :"
             android:layout_weight="1"
             android:gravity="right"
@@ -85,7 +87,7 @@
             android:id="@+id/song_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:text="Artist"
             android:textColor="#000000"
@@ -103,7 +105,7 @@
                 android:id="@+id/duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:text="Duration :"
                 android:layout_weight="1"
                 android:gravity="right"
@@ -115,12 +117,31 @@
                 android:id="@+id/song_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:text="Song Duration"
                 android:textColor="#000000"
                 android:textSize="20dp" />
+
+
         </LinearLayout>
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rateBar"
+            android:numStars="5"
+            android:stepSize=".5"/>
+
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="Rating"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -133,9 +154,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingVertical="20dp"
-                        android:layout_margin="10dp"
+                        android:layout_margin="5dp"
                         android:background="@drawable/btnr"
-                        android:text="Add to Playlist"
+                        android:text="Rate This Music"
                         android:textSize="16dp"
                         android:textColor="#ffffff" />
 
@@ -145,7 +166,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingVertical="20dp"
-                        android:layout_margin="10dp"
+                        android:layout_margin="5dp"
                         android:background="@drawable/btnr"
                         android:text="Cancel"
                         android:textSize="16dp"

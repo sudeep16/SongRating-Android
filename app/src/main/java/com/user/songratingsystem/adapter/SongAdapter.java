@@ -67,6 +67,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongsViewHolde
                 intent.putExtra("songArtist", songs.getArtist());
                 intent.putExtra("songGenre", songs.getGenre());
                 intent.putExtra("songDuration", songs.getDuration());
+                intent.putExtra("songRating", songs.getRating());
 //                intent.putExtra("songFile", songs.getSongFile());
                 context.startActivity(intent);
 
