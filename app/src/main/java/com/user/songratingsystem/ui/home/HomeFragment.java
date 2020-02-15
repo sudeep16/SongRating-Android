@@ -1,11 +1,16 @@
 package com.user.songratingsystem.ui.home;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -16,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.user.songratingsystem.R;
+import com.user.songratingsystem.activities.DashboardActivity;
 import com.user.songratingsystem.adapter.SongAdapter;
 import com.user.songratingsystem.api.UsersAPI;
 import com.user.songratingsystem.model.Songs;
@@ -135,4 +141,5 @@ public class HomeFragment extends Fragment {
         return view;
 
     }
+
 }
