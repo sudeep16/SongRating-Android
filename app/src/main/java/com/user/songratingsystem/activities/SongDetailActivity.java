@@ -131,7 +131,6 @@ public class SongDetailActivity extends AppCompatActivity {
                 if (!response.isSuccessful()){
                     Toast.makeText(SongDetailActivity.this, ""+response.code(), Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(SongDetailActivity.this, "Added to the Playlist", Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -69,4 +69,6 @@ public class RatedPlaylistFragment extends Fragment {
 
     }
 
+
+
 }
