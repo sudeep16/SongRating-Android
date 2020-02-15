@@ -1,5 +1,6 @@
 package com.user.songratingsystem.adapter;
 
+import android.app.Notification;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -12,10 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.user.songratingsystem.R;
 import com.user.songratingsystem.api.UsersAPI;
+import com.user.songratingsystem.createChannel.CreateChannel;
 import com.user.songratingsystem.model.Songs;
 import com.user.songratingsystem.model.UserSongs;
 import com.user.songratingsystem.strictmode.StrictModeClass;
@@ -33,6 +37,8 @@ public class UserSongsAdapter extends RecyclerView.Adapter<UserSongsAdapter.uSon
 
     Context context;
     List<UserSongs> uSongsList;
+    int Counter;
+    private NotificationManagerCompat notificationManagerCompat;
 
     public UserSongsAdapter(Context context, List<UserSongs> uSongsList) {
         this.context = context;
@@ -74,6 +80,21 @@ public class UserSongsAdapter extends RecyclerView.Adapter<UserSongsAdapter.uSon
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                notificationManagerCompat = NotificationManagerCompat.from(context);
+                CreateChannel notify = new CreateChannel(context);
+                notify.createChannel();
+
+                Notification notification = new NotificationCompat.Builder(context, CreateChannel.Notify_1)
+                        .setSmallIcon(R.drawable.ic_star_border_black_24dp)
+                        .setContentTitle("Deleted")
+                        .setContentText("You have Deleted " + userSongs.getSongTitle())
+                                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                .build();
+                notificationManagerCompat.notify(1,notification);
+
+                Counter++;
+
                 UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
                 Call<List<UserSongs>> delCall = usersAPI.userSongDelete(Url.token);
 
@@ -119,5 +140,9 @@ public class UserSongsAdapter extends RecyclerView.Adapter<UserSongsAdapter.uSon
             uSongRating = itemView.findViewById(R.id.uSongRate);
             deleteBtn = itemView.findViewById(R.id.deleteBtn);
         }
+    }
+
+    public void rateNotify(){
+
     }
 }
