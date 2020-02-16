@@ -1,5 +1,6 @@
 package com.user.songratingsystem.activities;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -19,6 +20,8 @@ import androidx.navigation.ui.NavigationUI;
 
 public class DashboardActivity extends AppCompatActivity {
 
+    SensorManager sensorManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +36,39 @@ public class DashboardActivity extends AppCompatActivity {
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        proximity();
+
+    }
+
+
+    public void proximity() {
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+        if (sensor == null) {
+            Toast.makeText(this, "No Sensor Detected", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Sensor Kicking In ..... ", Toast.LENGTH_SHORT).show();
+        }
+
+        SensorEventListener proximityListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                if (event.values[0] <= 1) {
+                        Intent home = new Intent(Intent.ACTION_MAIN);
+                        home.addCategory(Intent.CATEGORY_HOME);
+                        home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(home);
+                    }
+                }
+
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+
+        sensorManager.registerListener(proximityListener, sensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 }

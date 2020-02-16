@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':songratingwearable'
 rootProject.name='Song Rating System'
