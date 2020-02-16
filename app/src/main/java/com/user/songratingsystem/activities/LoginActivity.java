@@ -43,13 +43,14 @@ public class LoginActivity extends AppCompatActivity {
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         register.setText(content);
 
+
+        gyroSense();
+
         userName = findViewById(R.id.name);
         passWord = findViewById(R.id.pass);
         btnLogin = findViewById(R.id.btnLogin);
         btnCancel = findViewById(R.id.btnCancel);
         remember = findViewById(R.id.checkBox);
-
-        proximity();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,30 +118,19 @@ public class LoginActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    public void proximity() {
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-
-        if (sensor == null) {
-            Toast.makeText(this, "No Sensor Detected", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Sensor Kicking In ..... ", Toast.LENGTH_SHORT).show();
-        }
-
-        SensorEventListener proximityListener = new SensorEventListener() {
+    private void gyroSense() {
+        sensorManager = (SensorManager) getSystemService((SENSOR_SERVICE));
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        SensorEventListener gyroSensor = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                WindowManager.LayoutParams params = LoginActivity.this.getWindow().getAttributes();
-                if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-                    if (event.values[0] == 0) {
-                        params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-                        params.screenBrightness = 0;
-                        getWindow().setAttributes(params);
-                    } else {
-                        params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-                        params.screenBrightness = -1f;
-                        getWindow().setAttributes(params);
-                    }
+                if (event.values[1] < 0) {
+                    Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                    startActivity(intent);
+                } else if (event.values[1] > 0){
+                    Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+                    startActivity(intent);
+
                 }
             }
 
@@ -150,8 +140,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        sensorManager.registerListener(proximityListener, sensor, SensorManager.SENSOR_DELAY_FASTEST);
+        if (sensor != null) {
+            sensorManager.registerListener(gyroSensor, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        } else {
+            Toast.makeText(this, "no sensor found", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
 
 
     }

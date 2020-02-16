@@ -1,5 +1,6 @@
 package com.user.songratingsystem;
 
+import com.user.songratingsystem.bll.LoginBll;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,9 +10,13 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+public class LoginUnitTest {
+
+    LoginBll loginBll = new LoginBll();
+
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void loginTest() {
+        boolean result = loginBll.checkUser("sandeep", "sandeep123");
+        assertEquals(true, result);
     }
 }
