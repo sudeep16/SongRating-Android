@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 
 import com.user.songratingsystem.R;
+import com.user.songratingsystem.activities.LoginActivity;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -40,6 +42,14 @@ public class RegistrationActivity extends AppCompatActivity {
 
         btnContinue = findViewById(R.id.btnContinue);
         cancelBtn = findViewById(R.id.cancelBtn);
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +91,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 } else {
                     if (pass.getText().toString().equals(cPass.getText().toString())) {
-                        if (usernameValidation()) {
+                        if (usernameValidation() && emailValidation()) {
                             dataTransfer();
                         }
                     } else {
@@ -104,6 +114,20 @@ public class RegistrationActivity extends AppCompatActivity {
             status = false;
         }
         return status;
+    }
+
+    private boolean emailValidation() {
+        String regEmail = email.getText().toString().trim();
+        if (regEmail.isEmpty()) {
+            email.setError("Required");
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(regEmail).matches()) {
+            email.setError("Please enter a valid email");
+            return false;
+        } else {
+            email.setError(null);
+            return true;
+        }
     }
 
 

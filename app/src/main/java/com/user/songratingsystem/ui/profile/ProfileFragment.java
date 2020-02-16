@@ -78,7 +78,7 @@ public class ProfileFragment extends Fragment {
 
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
-                Toast.makeText(getActivity(), Url.token + "You have been Logged Out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "You have been Logged Out", Toast.LENGTH_SHORT).show();
             }
         });
 
