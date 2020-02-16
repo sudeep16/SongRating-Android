@@ -11,7 +11,7 @@ public class RegisterUnitTest {
 
     @Test
     public void loginTest() {
-        boolean result = registerBll.registerUser("sudeep213", "sudeep123", "sudeep@gmail.com", "9805454545", "Kathmandu", "Male", "imageFile-1581582017540.jpeg");
+        boolean result = registerBll.registerUser("sudeep2123", "sudeep123", "sudeep@gmail.com", "9805454545", "Kathmandu", "Male", "imageFile-1581582017540.jpeg");
         assertEquals(true, result);
     }
 }

@@ -16,7 +16,7 @@ public class LoginUnitTest {
 
     @Test
     public void loginTest() {
-        boolean result = loginBll.checkUser("sandeep", "sandeep123");
+        boolean result = loginBll.checkUser("sudeep123", "sudeep");
         assertEquals(true, result);
     }
 }

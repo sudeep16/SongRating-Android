@@ -21,7 +21,7 @@ import retrofit2.Response;
 
 public class DashboardActivity extends WearableActivity {
 
-    private RecyclerView aSongs;
+    private TextView aSongs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,28 +30,8 @@ public class DashboardActivity extends WearableActivity {
 
         aSongs = findViewById(R.id.aSong);
 
-        UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
+        aSongs.setText("Welcome");
 
-        //For Recommended Songs
-        Call<List<Songs>> allSongs = usersAPI.getSongs(Url.token);
-        allSongs.enqueue(new Callback<List<Songs>>() {
-            @Override
-            public void onResponse(Call<List<Songs>> call, Response<List<Songs>> response) {
-                if (!response.isSuccessful()) {
-                    Toast.makeText(DashboardActivity.this, "" + response.code(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                List<Songs> allSongList = response.body();
-                SongAdapter songAdapter = new SongAdapter(DashboardActivity.this, allSongList);
-                aSongs.setAdapter(songAdapter);
-                aSongs.setLayoutManager(new LinearLayoutManager(DashboardActivity.this, RecyclerView.HORIZONTAL, false));
-            }
-
-            @Override
-            public void onFailure(Call<List<Songs>> call, Throwable t) {
-
-            }
-        });
         // Enables Always-on
         setAmbientEnabled();
     }

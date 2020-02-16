@@ -36,7 +36,7 @@ public class SongDetailActivity extends AppCompatActivity {
     private NotificationManagerCompat notificationManagerCompat;
     ImageView song_image;
     TextView song_title, song_artist, song_genre, song_duration;
-    String songTitle, rated;
+    String songTitle, songArtist, songDuration, songGenre, rated;
     Button sAddBtn, sCancelBtn;
     RatingBar ratingBar;
     TextView rate;
@@ -116,9 +116,9 @@ public class SongDetailActivity extends AppCompatActivity {
 
     public void addToPlaylist(){
         songTitle = song_title.getText().toString().trim();
-        String songArtist = song_artist.getText().toString().trim();
-        String songGenre = song_genre.getText().toString().trim();
-        String songDuration = song_duration.getText().toString().trim();
+        songArtist = song_artist.getText().toString().trim();
+        songGenre = song_genre.getText().toString().trim();
+        songDuration = song_duration.getText().toString().trim();
         rated = Float.toString(ratedStar);
 
         UserSongs uSongs = new UserSongs(songTitle, songArtist, songGenre, songDuration, rated);
